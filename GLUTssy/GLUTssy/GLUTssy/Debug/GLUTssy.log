@@ -1,0 +1,7 @@
+﻿  GlutCallbacks.cpp
+  Glutclass.cpp
+  GLUTHelper.cpp
+  HelloGL.cpp
+  Generating Code...
+  LINK : C:\Users\w019710n\Documents\GLUTssy\GLUTssy\Debug\GLUTssy.exe not found or not built by the last incremental link; performing full link
+  GLUTssy.vcxproj -> C:\Users\w019710n\Documents\GLUTssy\GLUTssy\Debug\GLUTssy.exe
