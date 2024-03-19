@@ -17,6 +17,10 @@ public:
 
 	void DrawPolygon();
 
+	void Drawtriangle();
+
+	void DrawHexagon();
+
 	void Update();
 
 private:
