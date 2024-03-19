@@ -22,4 +22,10 @@ namespace GlutCallbacks
 			helper->Display();
 		}
 	}
+
+	void Timer(int preferredRefresh)
+	{
+		helper->Update();
+		glutTimerFunc(preferredRefresh, GlutCallbacks::Timer, preferredRefresh);
+	}
 }
