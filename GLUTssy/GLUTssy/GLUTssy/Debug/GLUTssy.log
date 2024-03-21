@@ -1,2 +1,3 @@
 ﻿  GLUTHelper.cpp
+C:\Users\w019710n\Documents\GitHub\INTRODUCTION-TO-GRAPHICS-PROGRAMMING-GDEV40026-2023-SUG2-2023-SUG2\GLUTssy\GLUTssy\GLUTssy\GLUTHelper.cpp(49,20): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
   GLUTssy.vcxproj -> C:\Users\w019710n\Documents\GitHub\INTRODUCTION-TO-GRAPHICS-PROGRAMMING-GDEV40026-2023-SUG2-2023-SUG2\GLUTssy\GLUTssy\Debug\GLUTssy.exe

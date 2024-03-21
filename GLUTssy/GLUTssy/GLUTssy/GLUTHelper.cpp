@@ -35,9 +35,9 @@ void GLUTHelper::Display()
 {
 	glClear(GL_COLOR_BUFFER_BIT); //this clears the scene
 	
-	//GLUTHelper::DrawPolygon();
+	GLUTHelper::DrawPolygon();
 	GLUTHelper::DrawHexagon();
-	//GLUTHelper::Drawtriangle();
+	GLUTHelper::Drawtriangle();
 
 	glFlush(); //flushes the scene drawn to the graphics card
 
@@ -46,7 +46,7 @@ void GLUTHelper::Display()
 void GLUTHelper::DrawPolygon()
 {
 	glPushMatrix();
-	glRotatef(rotation, 0.0f, 0.0f, -1.0f);
+	glRotatef(rotation*1.5, 0.0f, 0.0f, -1.0f);
 
 	glBegin(GL_POLYGON); //starts to draw a polygon
 	{
@@ -73,11 +73,11 @@ void GLUTHelper::DrawHexagon()
 		glColor4f(1.0f, 1.0f, 0.0f, 0.0f);
 		glVertex2f(-0.75, 0.5); //define the first point of the polygon,top left
 		glVertex2f(0.75, 0.5); //next point, top right
-		glVertex2f(-1, 0); //bottom right
+		glVertex2f(1, 0); //bottom right
 		glColor4f(0.0f, 1.0f, 1.0f, 0.0f);
-		glVertex2f(-0.75, -0.5); //last point of the polygon, bottom left
-		glVertex2f(0.75, -0.5);
-		glVertex2f(1, 0);
+		glVertex2f(0.75, -0.5); //last point of the polygon, bottom left
+		glVertex2f(-0.75, -0.5);
+		glVertex2f(-1, 0);
 		glEnd(); // defines the end of the draw
 	}
 
@@ -87,14 +87,14 @@ void GLUTHelper::DrawHexagon()
 void GLUTHelper::Drawtriangle()
 {
 	glPushMatrix();
-	glRotatef(rotation, 0.0f, 0.0f, -1.0f);
+	glRotatef(rotation*2, 0.0f, 0.0f, -1.0f);
 
 	glBegin(GL_POLYGON); //starts to draw a polygon
 	{
-		glColor4f(1.0f, 0.0f, 0.0f, 0.0f);
-		glVertex2f(-0.75, 0.5); //define the first point of the polygon,top left
-		glVertex2f(0.75, 0.5); //next point, top right
-		glColor4f(1.0f, 0.0f, 1.0f, 0.0f);
+		glColor4f(0.5f, 1.0f, 0.5f, 1.0f);
+		glVertex2f(0, 0.5); //define the first point of the polygon,top left
+		//glVertex2f(0.75, 0.5); //next point, top right
+		glColor4f(0.5f, 0.5f, 1.0f, 1.0f);
 		glVertex2f(0.75, -0.5); //bottom right
 		glVertex2f(-0.75, -0.5); //last point of the polygon, bottom left
 		glEnd(); // defines the end of the draw
