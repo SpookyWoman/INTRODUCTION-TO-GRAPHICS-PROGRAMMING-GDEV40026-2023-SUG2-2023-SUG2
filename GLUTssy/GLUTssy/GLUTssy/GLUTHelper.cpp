@@ -6,11 +6,12 @@ GLUTHelper::GLUTHelper(int argc, char* argv[])
 	rotation = 0.0f;
 	GlutCallbacks::Init(this);
 	glutInit(&argc, argv);
-	glutInitWindowSize(1800, 1800);
+	glutInitDisplayMode(GLUT_DOUBLE);
+	glutInitWindowSize(800, 800);
 	glutCreateWindow("Simple OpenGl Porgram of Doom and TERROR!!!");
 	glutDisplayFunc(GlutCallbacks::Display);
 	glutTimerFunc(REFRESHRATE, GlutCallbacks::Timer, REFRESHRATE);
-	
+	glutKeyboardFunc(GlutCallbacks::Keyboard);
 	glutMainLoop();
 	
 }
@@ -40,6 +41,7 @@ void GLUTHelper::Display()
 	GLUTHelper::Drawtriangle();
 
 	glFlush(); //flushes the scene drawn to the graphics card
+	glutSwapBuffers();
 
 }
 
@@ -87,7 +89,7 @@ void GLUTHelper::DrawHexagon()
 void GLUTHelper::Drawtriangle()
 {
 	glPushMatrix();
-	glRotatef(rotation*2, 0.0f, 0.0f, -1.0f);
+	glRotatef(rotation*99, 0.0f, 0.0f, -1.0f);
 
 	glBegin(GL_POLYGON); //starts to draw a polygon
 	{
@@ -102,3 +104,4 @@ void GLUTHelper::Drawtriangle()
 
 	glPopMatrix();
 }
+
