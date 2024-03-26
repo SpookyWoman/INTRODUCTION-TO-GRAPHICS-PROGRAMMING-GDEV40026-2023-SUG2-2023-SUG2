@@ -45,10 +45,25 @@ void GLUTHelper::Display()
 
 }
 
+void GLUTHelper::Keyboard(unsigned char key, int x, int y)
+{
+
+	if (key == 'd')
+	{
+		rotation += 0.5f;
+	}
+
+	if (key == 'a')
+	{
+		rotation += -1.5f;
+	}
+
+}
+
 void GLUTHelper::DrawPolygon()
 {
 	glPushMatrix();
-	glRotatef(rotation*1.5, 0.0f, 0.0f, -1.0f);
+	glRotatef(rotation*1.5, 1.0f, 0.0f, 0.0f);
 
 	glBegin(GL_POLYGON); //starts to draw a polygon
 	{
@@ -68,7 +83,7 @@ void GLUTHelper::DrawPolygon()
 void GLUTHelper::DrawHexagon()
 {
 	glPushMatrix();
-	glRotatef(rotation, 0.0f, 0.0f, -1.0f);
+	glRotatef(rotation, rotation*1.0f, rotation * 0.0f, rotation * 0.0f);
 
 	glBegin(GL_POLYGON); //starts to draw a polygon
 	{
@@ -89,7 +104,7 @@ void GLUTHelper::DrawHexagon()
 void GLUTHelper::Drawtriangle()
 {
 	glPushMatrix();
-	glRotatef(rotation*99, 0.0f, 0.0f, -1.0f);
+	glRotatef(rotation*99, 1.0f, 0.0f, 0.0f);
 
 	glBegin(GL_POLYGON); //starts to draw a polygon
 	{
