@@ -4,6 +4,7 @@
 #include <gl/GLU.h>
 #include "GL\freeglut.h"
 #include "GlutCallbacks.h"
+#include <cmath>
 //#define Vector3
 //#define Camera
 
@@ -12,7 +13,10 @@ struct Vector3 {
 };
 
 struct Camera {
-	Vector3 eye, center, up;
+	Vector3 pos, center, up;
+	// camera position is pos
+	// center is the target position that the camera is looking at
+	//up is up
 };
 
 

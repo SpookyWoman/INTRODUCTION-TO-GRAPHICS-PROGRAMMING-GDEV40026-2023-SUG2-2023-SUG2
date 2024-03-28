@@ -8,10 +8,10 @@ GLUTHelper::GLUTHelper(int argc, char* argv[])
 	GlutCallbacks::Init(this);
 	camera = new Camera();
 
-	camera->eye.x = 0.0f; camera->eye.y = 0.0f; camera->eye.z = 1.0f;
+	camera->pos.x = 0.0f; camera->pos.y = 0.0f; camera->pos.z = 1.0f;
 	camera->center.x = 0.0f; camera->center.y = 0.0f; camera->center.z = 0.0f;
 	camera->up.x = 0.0f; camera->up.y = 1.0f; camera->up.z = 0.0f;
-
+	float angle = 0;
 
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE);
@@ -36,7 +36,7 @@ GLUTHelper::~GLUTHelper(void)
 void GLUTHelper::Update()
 {
 	glLoadIdentity();
-	gluLookAt(camera->eye.x, camera->eye.y, camera->eye.z, camera->center.x, camera->center.y, camera->center.z, camera->up.x, camera->up.y, camera->up.z);
+	gluLookAt(camera->pos.x, camera->pos.y, camera->pos.z, camera->center.x, camera->center.y, camera->center.z, camera->up.x, camera->up.y, camera->up.z);
 	glutPostRedisplay();
 	rotation += 0.5f;
 
@@ -65,16 +65,17 @@ void GLUTHelper::Keyboard(unsigned char key, int x, int y)
 
 	if (key == 'd')
 	{
-		camera->eye.x = -0.1f;
-		camera->center.y = 0.1f;
+		//camera->pos.x -= 0.1f;
+		angle -= 0.1f;
 	}
 
 	if (key == 'a')
 	{
-		camera->eye.x = 0.1f;
-		camera->center.y = 0.1f;
+		//camera->pos.x += 0.1f;
+		angle += 0.1f;
 	}
-
+	camera->center.x = camera->pos.x + cos(angle);
+	camera->center.y = camera->pos.y + sin(angle);
 }
 
 void GLUTHelper::DrawPolygon()
