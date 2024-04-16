@@ -19,6 +19,15 @@ struct Camera {
 	//up is up
 };
 
+struct Color
+{
+	GLfloat r, g, b;
+};
+
+struct Vertex
+{
+	GLfloat	x, y, z;
+};
 
 #define REFRESHRATE 16
 
@@ -40,6 +49,23 @@ public:
 	void Update();
 
 	void Keyboard(unsigned char key, int x, int y);
+
+	void DrawCube();
+
+	void DrawCubeArray();
+
+	void DrawIndexedCube();
+
+	static Vertex vertices[];
+
+	static Color colors[];
+
+	static Vertex indexedVertices[];
+
+	static Color indexedColors[];
+	
+	static GLushort indices[];
+
 
 	Camera* camera;
 

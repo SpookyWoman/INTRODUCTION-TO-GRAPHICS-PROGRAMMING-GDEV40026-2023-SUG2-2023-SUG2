@@ -1,9 +1,6 @@
 ﻿  GLUTHelper.cpp
-C:\Users\w019710n\Documents\GitHub\INTRODUCTION-TO-GRAPHICS-PROGRAMMING-GDEV40026-2023-SUG2-2023-SUG2\GLUTssy\GLUTssy\GLUTssy\GLUTHelper.cpp(22,2): error C2664: 'void glutKeyboardFunc(void (__cdecl *)(unsigned char,int,int))': cannot convert argument 1 from 'void (__cdecl *)(unsigned char,int,int,float)' to 'void (__cdecl *)(unsigned char,int,int)'
-C:\Users\w019710n\Documents\GitHub\INTRODUCTION-TO-GRAPHICS-PROGRAMMING-GDEV40026-2023-SUG2-2023-SUG2\GLUTssy\GLUTssy\GLUTssy\GLUTHelper.cpp(22,34): message : None of the functions with this name in scope match the target type
-C:\Users\w019710n\Documents\GitHub\INTRODUCTION-TO-GRAPHICS-PROGRAMMING-GDEV40026-2023-SUG2-2023-SUG2\GLUTssy\GLUTssy\GLUTssy\GL\freeglut_std.h(470,26): message : see declaration of 'glutKeyboardFunc'
-C:\Users\w019710n\Documents\GitHub\INTRODUCTION-TO-GRAPHICS-PROGRAMMING-GDEV40026-2023-SUG2-2023-SUG2\GLUTssy\GLUTssy\GLUTssy\GLUTHelper.cpp(22,2): message : while trying to match the argument list '(overloaded-function)'
-C:\Users\w019710n\Documents\GitHub\INTRODUCTION-TO-GRAPHICS-PROGRAMMING-GDEV40026-2023-SUG2-2023-SUG2\GLUTssy\GLUTssy\GLUTssy\GLUTHelper.cpp(85,20): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\w019710n\Documents\GitHub\INTRODUCTION-TO-GRAPHICS-PROGRAMMING-GDEV40026-2023-SUG2-2023-SUG2\GLUTssy\GLUTssy\GLUTssy\GLUTHelper.cpp(161,20): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
   GlutCallbacks.cpp
   Glutclass.cpp
   Generating Code...
+  GLUTssy.vcxproj -> C:\Users\w019710n\Documents\GitHub\INTRODUCTION-TO-GRAPHICS-PROGRAMMING-GDEV40026-2023-SUG2-2023-SUG2\GLUTssy\GLUTssy\Debug\GLUTssy.exe
