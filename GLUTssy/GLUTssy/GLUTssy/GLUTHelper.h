@@ -5,29 +5,9 @@
 #include "GL\freeglut.h"
 #include "GlutCallbacks.h"
 #include <cmath>
+#include "Cube.h"
 //#define Vector3
 //#define Camera
-
-struct Vector3 {
-	float x, y, z;
-};
-
-struct Camera {
-	Vector3 pos, center, up;
-	// camera position is pos
-	// center is the target position that the camera is looking at
-	//up is up
-};
-
-struct Color
-{
-	GLfloat r, g, b;
-};
-
-struct Vertex
-{
-	GLfloat	x, y, z;
-};
 
 #define REFRESHRATE 16
 
@@ -56,18 +36,20 @@ public:
 
 	void DrawIndexedCube();
 
-	static Vertex vertices[];
+	//static Vertex vertices[];
 
-	static Color colors[];
+	//static Color colors[];
 
-	static Vertex indexedVertices[];
+	//static Vertex indexedVertices[];
 
-	static Color indexedColors[];
+	//static Color indexedColors[];
 	
-	static GLushort indices[];
+	//static GLushort indices[];
 
 
 	Camera* camera;
+
+	Cube* cube;
 
 
 private:

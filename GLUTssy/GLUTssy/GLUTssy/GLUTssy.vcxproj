@@ -127,12 +127,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Cube.h" />
     <ClInclude Include="GlutCallbacks.h" />
     <ClInclude Include="Glutclass.h" />
     <ClInclude Include="GLUTHelper.h" />
     <ClInclude Include="HelloGL.h" />
+    <ClInclude Include="Structures.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Cube.cpp" />
     <ClCompile Include="GlutCallbacks.cpp" />
     <ClCompile Include="Glutclass.cpp" />
     <ClCompile Include="GLUTHelper.cpp" />
