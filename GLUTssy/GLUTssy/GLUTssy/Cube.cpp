@@ -53,6 +53,10 @@ GLushort Cube::indices[] = { 0, 1, 2,  2, 3, 0,      // front
 				7, 4, 3,  3, 2, 7,      // bottom
 				4, 7, 6,  6, 5, 4 };    // back
 
+//float _position.x = x;
+//float _position.y = y;
+//float _position.z = z;
+
 void Cube::Draw()
 {
 	glPushMatrix();
@@ -62,6 +66,7 @@ void Cube::Draw()
 	{
 		glColor3fv(&indexedColors[indices[i]].r);
 		glVertex3fv(&indexedVertices[indices[i]].x);
+		glTranslatef(_position.x, _position.y, _position.z);
 		glRotatef(_rotation, 1.0f, 0.0f, 0.0f);
 	}
 	glEnd();

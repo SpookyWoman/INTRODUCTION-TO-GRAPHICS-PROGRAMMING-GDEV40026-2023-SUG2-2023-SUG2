@@ -73,7 +73,8 @@ GLUTHelper::GLUTHelper(int argc, char* argv[])
 
 	
 	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_DOUBLE);
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH);
+	glEnable(GL_DEPTH_TEST);
 	glutInitWindowSize(800, 800);
 	glutCreateWindow("Simple OpenGl Porgram of Doom and TERROR!!!");
 	glutDisplayFunc(GlutCallbacks::Display);
@@ -108,7 +109,7 @@ void GLUTHelper::Update()
 
 void GLUTHelper::Display()
 {
-	glClear(GL_COLOR_BUFFER_BIT); //this clears the scene
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //this clears the scene
 	
 	//GLUTHelper::DrawPolygon();
 	//GLUTHelper::DrawHexagon();
@@ -158,6 +159,16 @@ void GLUTHelper::Keyboard(unsigned char key, int x, int y)
 	//camera->center.y = camera->pos.y + sin(angle);
 }
 
+/*void GLUTHelper::cube()
+{
+
+	for (int i = 0; i < 200; i++)
+	{
+		cube[i] = new Cube(((rand() % 400) / 10.0f) - 20.0f, ((rand() % 200) / 10.0f) - 10.0f, -(rand() % 1000) / 10.0f);
+
+	}
+
+}*/
 
 
 

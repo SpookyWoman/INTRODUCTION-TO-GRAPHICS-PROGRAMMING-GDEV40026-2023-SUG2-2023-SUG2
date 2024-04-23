@@ -11,6 +11,7 @@ private:
 	static Vertex indexedVertices[];
 	static Color indexedColors[];
 	static GLushort indices[];
+	Vector3 _position;
 
 public:
 	Cube();
