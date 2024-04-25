@@ -9,6 +9,7 @@
 //#define Vector3
 //#define Camera
 
+#define NUM_CUBES 10000
 #define REFRESHRATE 16
 
 class GLUTHelper
@@ -49,7 +50,7 @@ public:
 
 	Camera* camera;
 
-	Cube* cube;
+	Cube* cube[NUM_CUBES];
 
 
 private:

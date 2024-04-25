@@ -36,7 +36,7 @@ Color Cube::colors[] = { 1, 1, 1,   1, 1, 0,   1, 0, 0,      // v0-v1-v2 (front)
 				0, 0, 1,   0, 0, 0,   0, 1, 0,      // v4-v7-v6 (back)
 				0, 1, 0,   0, 1, 1,   0, 0, 1 };    // v6-v5-v4*/
 
-Vertex Cube::indexedVertices[] = { 1, 1, 1,  -1, 1, 1,  // v0,v1,
+Vertex Cube::indexedVertices[] = {1, 1, 1,  -1, 1, 1,  // v0,v1,
 				-1,-1, 1,   1,-1, 1,   // v2,v3
 				1,-1,-1,   1, 1,-1,    // v4,v5
 				-1, 1,-1,   -1,-1,-1 }; // v6,v7
@@ -59,6 +59,11 @@ GLushort Cube::indices[] = { 0, 1, 2,  2, 3, 0,      // front
 
 void Cube::Draw()
 {
+	glTranslatef(_position.x, _position.y, _position.z);
+	glRotatef(_rotation, 0.0f, 1.0f, 0.0f);
+
+	
+	
 	glPushMatrix();
 	
 	glBegin(GL_TRIANGLES);
@@ -66,8 +71,8 @@ void Cube::Draw()
 	{
 		glColor3fv(&indexedColors[indices[i]].r);
 		glVertex3fv(&indexedVertices[indices[i]].x);
-		glTranslatef(_position.x, _position.y, _position.z);
-		glRotatef(_rotation, 1.0f, 0.0f, 0.0f);
+		
+		
 	}
 	glEnd();
 
@@ -82,7 +87,10 @@ void Cube::Update()
 
 Cube::Cube()
 {
-
+	_position.x = (((rand() % 400) / 10.0f) - 20.0f);
+	_position.y = (((rand() % 200) / 10.0f) - 10.0f);
+	_position.z = (((rand() % 1000) / 10.0f));
+	_rotation = .0f;
 }
 
 Cube::~Cube()

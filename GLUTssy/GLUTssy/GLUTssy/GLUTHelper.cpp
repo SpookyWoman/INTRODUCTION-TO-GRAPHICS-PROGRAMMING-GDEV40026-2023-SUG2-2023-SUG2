@@ -61,10 +61,15 @@ GLUTHelper::GLUTHelper(int argc, char* argv[])
 	GlutCallbacks::Init(this);
 	camera = new Camera();
 
-	cube = new Cube();
+	//cube = new Cube[1,2,3,4,5,6,7,8];
+
+	for (int i = 0; i < NUM_CUBES; i++)
+	{
+		cube[i] = new Cube();
+	}
 
 	//camera->pos.x = 0.0f; camera->pos.y = 0.0f; camera->pos.z = 1.0f;
-	camera->pos.x = 5.0f; camera->pos.y = 5.0f; camera->pos.z = -5.0f;
+	camera->pos.x = 5.0f; camera->pos.y = 5.0f; camera->pos.z = -15.0f;
 	camera->center.x = 0.0f; camera->center.y = 0.0f; camera->center.z = 0.0f;
 	camera->up.x = 0.0f; camera->up.y = 1.0f; camera->up.z = 0.0f;
 	float angle = 0;
@@ -83,7 +88,7 @@ GLUTHelper::GLUTHelper(int argc, char* argv[])
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	glViewport(0, 0, 800, 800);
-	gluPerspective(45, 1, 0, 1000);
+	gluPerspective(45, 1, 1, 1000);
 	glMatrixMode(GL_MODELVIEW);
 	glutMainLoop();
 	
@@ -104,6 +109,11 @@ void GLUTHelper::Update()
 	{
 		rotation = 0.0f;
 	}
+	for (int i = 0; i < NUM_CUBES; i++)
+	{
+		cube[i]->Update();
+	}
+
 
 }
 
@@ -116,8 +126,13 @@ void GLUTHelper::Display()
 	//GLUTHelper::Drawtriangle();
 	//GLUTHelper::DrawCube();
 	//GLUTHelper::DrawCubeArray();
-	//Cube::Draw();
-	cube->Draw();
+	//Cube::Update();
+	//cube->Draw();
+
+	for (int i = 0; i < NUM_CUBES; i++)
+	{
+		cube[i]->Draw();
+	}
 
 
 	glFlush(); //flushes the scene drawn to the graphics card
