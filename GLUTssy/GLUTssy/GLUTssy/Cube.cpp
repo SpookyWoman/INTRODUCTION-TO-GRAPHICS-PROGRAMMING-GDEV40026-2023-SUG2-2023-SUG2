@@ -1,4 +1,8 @@
 #include "Cube.h"
+#include <iostream>     // std::cout
+#include <fstream>      // std::ifstream
+
+using namespace std;
 
 /*Vertex Cube::vertices[] = {1, 1, 1,  -1, 1, 1,  -1,-1, 1,      // v0-v1-v2 (front)
 				-1,-1, 1,   1,-1, 1,   1, 1, 1,      // v2-v3-v0
@@ -36,7 +40,7 @@ Color Cube::colors[] = { 1, 1, 1,   1, 1, 0,   1, 0, 0,      // v0-v1-v2 (front)
 				0, 0, 1,   0, 0, 0,   0, 1, 0,      // v4-v7-v6 (back)
 				0, 1, 0,   0, 1, 1,   0, 0, 1 };    // v6-v5-v4*/
 
-Vertex Cube::indexedVertices[] = {1, 1, 1,  -1, 1, 1,  // v0,v1,
+/*Vertex Cube::indexedVertices[] = {1, 1, 1,  -1, 1, 1,  // v0,v1,
 				-1,-1, 1,   1,-1, 1,   // v2,v3
 				1,-1,-1,   1, 1,-1,    // v4,v5
 				-1, 1,-1,   -1,-1,-1 }; // v6,v7
@@ -51,7 +55,17 @@ GLushort Cube::indices[] = { 0, 1, 2,  2, 3, 0,      // front
 				0, 5, 6,  6, 1, 0,      // top
 				1, 6, 7,  7, 2, 1,      // left
 				7, 4, 3,  3, 2, 7,      // bottom
-				4, 7, 6,  6, 5, 4 };    // back
+				4, 7, 6,  6, 5, 4 };    // back*/
+
+Vertex* Cube::indexedVertices = nullptr;
+Color* Cube::indexedColors = nullptr;
+GLushort* Cube::indices = nullptr;
+
+int Cube::numVertices = 0;
+int Cube::numColors = 0;
+int Cube::numIndices = 0;
+
+
 
 //float _position.x = x;
 //float _position.y = y;
@@ -62,22 +76,72 @@ void Cube::Draw()
 	glTranslatef(_position.x, _position.y, _position.z);
 	glRotatef(_rotation, 0.0f, 1.0f, 0.0f);
 
-	
-	
+
+
 	glPushMatrix();
-	
-	glBegin(GL_TRIANGLES);
-	for (int i = 0; i < 36; i++)
+
+	//glBegin(GL_TRIANGLES);
+	//for (int i = 0; i < 36; i++)
+	//{
+	//	glColor3fv(&indexedColors[indices[i]].r);
+	//	glVertex3fv(&indexedVertices[indices[i]].x);
+	//
+	//
+	//}
+
+	if ((indexedVertices != nullptr) && (indexedColors != nullptr) && (indices != nullptr))
 	{
-		glColor3fv(&indexedColors[indices[i]].r);
-		glVertex3fv(&indexedVertices[indices[i]].x);
 		
-		
+
 	}
-	glEnd();
+
+	//glEnd();
 
 	glPopMatrix();
 
+	
+
+}
+
+bool Cube::Load(char* path)
+{
+	std::ifstream inFile;
+	inFile.open(path);
+	if (!inFile.good())
+	{
+		std::cerr << "Can't open text file " << path << std::endl;
+		return false;
+	}
+
+	inFile >> numVertices;
+	indexedVertices = new Vertex[numVertices];
+	for (int i = 0; i < numVertices; i++)
+	{
+		//TODO Use inFile to populate the indexedVertices array
+		inFile >> indexedVertices[i].x; // etc
+	}
+
+	indexedColors = new Color[numColors];
+	for (int i = 0; i < numColors; i++)
+	{
+		//TODO Use inFile to populate the indexedColors array
+		//inFile >> indexedColors[i]; // etc
+	}
+
+	indices = new GLushort[numIndices];
+	for (int i = 0; i < numIndices; i++)
+	{
+		//TODO Use inFile to populate the indices array
+		inFile >> indexedVertices[i].x; // etc
+	}
+
+
+	//TODO: Load Color information
+	//TODO: Load Indices information
+
+	inFile.close();
+
+	return true;
 }
 
 void Cube::Update()

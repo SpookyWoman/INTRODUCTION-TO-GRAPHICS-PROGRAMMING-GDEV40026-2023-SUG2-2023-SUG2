@@ -128,6 +128,8 @@ void GLUTHelper::Display()
 	//GLUTHelper::DrawCubeArray();
 	//Cube::Update();
 	//cube->Draw();
+	//Cube::Load("cube.txt");
+	Cube::Load((char*)"cube.txt");
 
 	for (int i = 0; i < NUM_CUBES; i++)
 	{
