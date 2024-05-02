@@ -16,7 +16,7 @@ private:
 
 
 public:
-	Cube();
+	Cube(float x, float y, float z);
 	~Cube();
 
 	void Draw();

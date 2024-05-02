@@ -63,11 +63,14 @@ GLUTHelper::GLUTHelper(int argc, char* argv[])
 
 	//cube = new Cube[1,2,3,4,5,6,7,8];
 
+	Cube::Load((char*)"cube.txt");
+
+
 	for (int i = 0; i < NUM_CUBES; i++)
 	{
-		cube[i] = new Cube();
+		cube[i] = new Cube((((rand() % 400) / 10.0f) - 20.0f), (((rand() % 200) / 10.0f) - 10.0f), (((rand() % 1000) / 10.0f)));
+		//cube[i] = new Cube(i + 0.5f,0.0f,0.0f);
 	}
-
 	//camera->pos.x = 0.0f; camera->pos.y = 0.0f; camera->pos.z = 1.0f;
 	camera->pos.x = 5.0f; camera->pos.y = 5.0f; camera->pos.z = -15.0f;
 	camera->center.x = 0.0f; camera->center.y = 0.0f; camera->center.z = 0.0f;
@@ -82,14 +85,14 @@ GLUTHelper::GLUTHelper(int argc, char* argv[])
 	glEnable(GL_DEPTH_TEST);
 	glutInitWindowSize(800, 800);
 	glutCreateWindow("Simple OpenGl Porgram of Doom and TERROR!!!");
-	glutDisplayFunc(GlutCallbacks::Display);
-	glutTimerFunc(REFRESHRATE, GlutCallbacks::Timer, REFRESHRATE);
-	glutKeyboardFunc(GlutCallbacks::Keyboard);
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	glViewport(0, 0, 800, 800);
-	gluPerspective(45, 1, 1, 1000);
-	glMatrixMode(GL_MODELVIEW);
+		glutDisplayFunc(GlutCallbacks::Display);
+		glutTimerFunc(REFRESHRATE, GlutCallbacks::Timer, REFRESHRATE);
+		glutKeyboardFunc(GlutCallbacks::Keyboard);
+		glMatrixMode(GL_PROJECTION);
+		glLoadIdentity();
+			glViewport(0, 0, 800, 800);
+			gluPerspective(45, 1, 1, 1000);
+		glMatrixMode(GL_MODELVIEW);
 	glutMainLoop();
 	
 }
@@ -129,7 +132,7 @@ void GLUTHelper::Display()
 	//Cube::Update();
 	//cube->Draw();
 	//Cube::Load("cube.txt");
-	Cube::Load((char*)"cube.txt");
+	
 
 	for (int i = 0; i < NUM_CUBES; i++)
 	{

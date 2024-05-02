@@ -76,28 +76,41 @@ void Cube::Draw()
 	glTranslatef(_position.x, _position.y, _position.z);
 	glRotatef(_rotation, 0.0f, 1.0f, 0.0f);
 
-
+	glEnableClientState(GL_VERTEX_ARRAY);
+	glEnableClientState(GL_COLOR_ARRAY);
+	glVertexPointer(3, GL_FLOAT, 0, indexedVertices);
+	glColorPointer(3, GL_FLOAT, 0, indexedColors);
 
 	glPushMatrix();
+	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_SHORT, indices);
+	glPopMatrix();
 
-	//glBegin(GL_TRIANGLES);
-	//for (int i = 0; i < 36; i++)
-	//{
-	//	glColor3fv(&indexedColors[indices[i]].r);
-	//	glVertex3fv(&indexedVertices[indices[i]].x);
-	//
-	//
-	//}
+	glDisableClientState(GL_COLOR_ARRAY);
+	glDisableClientState(GL_VERTEX_ARRAY);
 
-	if ((indexedVertices != nullptr) && (indexedColors != nullptr) && (indices != nullptr))
+	/*glPushMatrix();
+
+	glBegin(GL_TRIANGLES);
+	for (int i = 0; i < 36; i++)
+	{
+		glColor3fv(&indexedColors[indices[i]].r);
+		glVertex3fv(&indexedVertices[indices[i]].x);
+	}*/
+
+	/*if ((indexedVertices != nullptr) && (indexedColors != nullptr) && (indices != nullptr))
 	{
 		
-
+		glBegin(GL_TRIANGLES);
+		for (int i = 0; i < 36; i++)
+		{
+			glColor3fv(&indexedColors[indices[i]].r);
+			//glVertex3f(indexedVertices[i].x, indexedVertices[i].y, indexedVertices[i].z);
+			glVertex3fv(&indexedVertices[indices[i]].x);
+		}
+		glEnd();
 	}
-
-	//glEnd();
-
-	glPopMatrix();
+	
+	glPopMatrix();*/
 
 	
 
@@ -113,32 +126,39 @@ bool Cube::Load(char* path)
 		return false;
 	}
 
+	
+
+	
+
 	inFile >> numVertices;
 	indexedVertices = new Vertex[numVertices];
 	for (int i = 0; i < numVertices; i++)
 	{
 		//TODO Use inFile to populate the indexedVertices array
 		inFile >> indexedVertices[i].x; // etc
+		inFile >> indexedVertices[i].y;
+		inFile >> indexedVertices[i].z;
 	}
 
+
+	inFile >> numColors;
+	//TODO: Load Color information
 	indexedColors = new Color[numColors];
 	for (int i = 0; i < numColors; i++)
 	{
 		//TODO Use inFile to populate the indexedColors array
-		//inFile >> indexedColors[i]; // etc
+		inFile >> indexedColors[i].r;
+		inFile >> indexedColors[i].g;
+		inFile >> indexedColors[i].b;// etc
 	}
-
+	inFile >> numIndices;
+	//TODO: Load Indices information
 	indices = new GLushort[numIndices];
 	for (int i = 0; i < numIndices; i++)
 	{
 		//TODO Use inFile to populate the indices array
-		inFile >> indexedVertices[i].x; // etc
+		inFile >> indices[i]; // etc
 	}
-
-
-	//TODO: Load Color information
-	//TODO: Load Indices information
-
 	inFile.close();
 
 	return true;
@@ -149,11 +169,11 @@ void Cube::Update()
 	_rotation += 0.1f;
 }
 
-Cube::Cube()
+Cube::Cube(float x, float y, float z)
 {
-	_position.x = (((rand() % 400) / 10.0f) - 20.0f);
-	_position.y = (((rand() % 200) / 10.0f) - 10.0f);
-	_position.z = (((rand() % 1000) / 10.0f));
+	_position.x =/* (((rand() % 400) / 10.0f) - 20.0f);*/x;
+	_position.y = /*(((rand() % 200) / 10.0f) - 10.0f);*/y;
+	_position.z = /*(((rand() % 1000) / 10.0f));*/z;
 	_rotation = .0f;
 }
 

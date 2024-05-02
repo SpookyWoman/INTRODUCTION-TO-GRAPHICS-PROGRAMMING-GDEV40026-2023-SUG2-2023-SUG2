@@ -9,7 +9,7 @@
 //#define Vector3
 //#define Camera
 
-#define NUM_CUBES 10000
+#define NUM_CUBES 100000
 #define REFRESHRATE 16
 
 class GLUTHelper

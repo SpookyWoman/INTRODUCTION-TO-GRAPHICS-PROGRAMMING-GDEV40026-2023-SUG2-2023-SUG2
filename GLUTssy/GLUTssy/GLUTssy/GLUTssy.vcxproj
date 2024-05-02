@@ -141,6 +141,9 @@
     <ClCompile Include="GLUTHelper.cpp" />
     <ClCompile Include="HelloGL.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="cube.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
