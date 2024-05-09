@@ -1,8 +1,0 @@
-﻿GLUTHelper.obj : error LNK2019: unresolved external symbol __imp_glutInitWindowSize referenced in function "public: __cdecl GLUTHelper::GLUTHelper(int,char * * const)" (??0GLUTHelper@@QEAA@HQEAPEAD@Z)
-GLUTHelper.obj : error LNK2019: unresolved external symbol __imp_glutMainLoop referenced in function "public: __cdecl GLUTHelper::GLUTHelper(int,char * * const)" (??0GLUTHelper@@QEAA@HQEAPEAD@Z)
-GLUTHelper.obj : error LNK2019: unresolved external symbol __imp_glutPostRedisplay referenced in function "public: void __cdecl GLUTHelper::Update(void)" (?Update@GLUTHelper@@QEAAXXZ)
-GLUTHelper.obj : error LNK2019: unresolved external symbol __imp_glutDisplayFunc referenced in function "public: __cdecl GLUTHelper::GLUTHelper(int,char * * const)" (??0GLUTHelper@@QEAA@HQEAPEAD@Z)
-GLUTHelper.obj : error LNK2019: unresolved external symbol __imp___glutInitWithExit referenced in function glutInit_ATEXIT_HACK
-GLUTHelper.obj : error LNK2019: unresolved external symbol __imp___glutCreateWindowWithExit referenced in function glutCreateWindow_ATEXIT_HACK
-freeglut.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
-C:\Users\w019710n\Documents\GitHub\INTRODUCTION-TO-GRAPHICS-PROGRAMMING-GDEV40026-2023-SUG2-2023-SUG2\GLUTssy\GLUTssy\x64\Debug\GLUTssy.exe : fatal error LNK1120: 6 unresolved externals
